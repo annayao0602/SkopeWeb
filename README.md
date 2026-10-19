@@ -6,8 +6,7 @@ Complete source and assets for the Skope landing page, exported October 6, 2026.
 
 - `dist/index.html`: page content and scroll animations.
 - `dist/style.css`: Arsenal typography, gradient, responsive layout, and styling.
-- `dist/assets/`: app icon, logo, creator portraits, and the previously supplied Rive animation/player files.
-- `dist/character.js` and `dist/character.png`: retained from the earlier character animation. The current page displays the static app icon.
+- `dist/assets/`: images, logo, and creator portraits. The page uses `pillar.webp` (hero) and `step-start.webp`, `step-goal-created.webp`, `step-celebrate.webp` (How it works carousel); these are compressed copies of the PNGs in the same folder. See `PROGRESS.md` for how they were made.
 
 ## Preview locally
 
