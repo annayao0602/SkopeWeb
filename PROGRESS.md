@@ -5,9 +5,11 @@
 - **Subtitle** is on one line (`white-space:nowrap`, no max width), still centered. On phones (≤650px) it still wraps, because it can't fit.
 - **Pillar + character are taller,** using the freed line: `clamp(240px, 100svh − 350px, 530px)` (was `clamp(220px, 100svh − 390px, 450px)`). That's 530px tall at 1440×900, with the pillar about 180px wide.
 - **Darker, duller first screen:**
-  - background gradient `#625f74 → #504d63 → --bg` (was `#7a7693 → #64607e`);
-  - mountain layers `#75728a`, `#5c5974`, `#47445e`, `#36344c`;
-  - clouds `#c9c6d6`, glow `#a9a6ba`, fog `#9895aa` at .28.
+  - background gradient `#6e6889 → #5a5576 → --bg` (lightened and made more purple after review; first try was `#625f74 → #504d63`) (was `#7a7693 → #64607e`);
+  - mountain layers `#827e9b`, `#676383`, `#514d6f`, `#3e3b5b`;
+  - clouds `#d6d2e3`, glow `#b6b1ca`, fog `#a5a1bb` at .28.
+
+  These were lightened and made more purple to match the sky; the first try was `#75728a`, `#5c5974`, `#47445e`, `#36344c`.
 
   All are less saturated than before. Colors are in `tools/make-hero-scene.py`.
 - **Character** is 18% brighter (`CHAR_BRIGHTNESS` in `tools/make-hero-pillar.py`), so it stands out against the darker scene.

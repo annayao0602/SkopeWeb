@@ -74,20 +74,20 @@ near2 = spires([(130,615,270),(735,680,240),(1305,600,280)], 870, satellites=0)
 
 svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" preserveAspectRatio="xMidYMax slice">
 <defs>
-<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#a9a6ba" stop-opacity=".38"/><stop offset="1" stop-color="#a9a6ba" stop-opacity="0"/></radialGradient>
-<linearGradient id="fog" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9895aa" stop-opacity="0"/><stop offset=".5" stop-color="#9895aa" stop-opacity=".28"/><stop offset="1" stop-color="#9895aa" stop-opacity="0"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#b6b1ca" stop-opacity=".38"/><stop offset="1" stop-color="#b6b1ca" stop-opacity="0"/></radialGradient>
+<linearGradient id="fog" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5a1bb" stop-opacity="0"/><stop offset=".5" stop-color="#a5a1bb" stop-opacity=".28"/><stop offset="1" stop-color="#a5a1bb" stop-opacity="0"/></linearGradient>
 <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2840" stop-opacity="0"/><stop offset=".45" stop-color="#2a2840" stop-opacity=".7"/><stop offset=".82" stop-color="#2a2840"/></linearGradient>
 <filter id="soft" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="14"/></filter>
 <filter id="haze" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="1.2"/></filter>
 </defs>
 <ellipse cx="720" cy="600" rx="760" ry="300" fill="url(#glow)"/>
-<g fill="#c9c6d6" filter="url(#soft)">{clouds(170, 5, .18, avoid=(380, 1060))}{clouds(420, 9, .26)}</g>
-<g opacity=".5" filter="url(#haze)"><path d="{far}" fill="#75728a"/></g>
-<g fill="#c9c6d6" filter="url(#soft)">{clouds(540, 8, .24)}</g>
-<g opacity=".72" filter="url(#haze)"><path d="{mid}" fill="#5c5974"/></g>
+<g fill="#d6d2e3" filter="url(#soft)">{clouds(170, 5, .18, avoid=(380, 1060))}{clouds(420, 9, .26)}</g>
+<g opacity=".5" filter="url(#haze)"><path d="{far}" fill="#827e9b"/></g>
+<g fill="#d6d2e3" filter="url(#soft)">{clouds(540, 8, .24)}</g>
+<g opacity=".72" filter="url(#haze)"><path d="{mid}" fill="#676383"/></g>
 <rect x="0" y="560" width="{W}" height="220" fill="url(#fog)"/>
-<path d="{near1}" fill="#47445e" opacity=".88"/>
-<path d="{near2}" fill="#36344c" opacity=".92"/>
+<path d="{near1}" fill="#514d6f" opacity=".88"/>
+<path d="{near2}" fill="#3e3b5b" opacity=".92"/>
 <rect x="0" y="640" width="{W}" height="{H-640}" fill="url(#floor)"/>
 </svg>
 '''

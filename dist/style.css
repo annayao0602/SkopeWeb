@@ -5,4 +5,4 @@
 
 .brand-mark{display:block;width:48px;height:auto;flex-shrink:0}@media(max-width:650px){.brand-mark{width:30px}}
 
-body{background:var(--bg) linear-gradient(180deg,#625f74 0,#504d63 50vh,var(--bg) 100vh) no-repeat;min-height:100vh}.portrait{overflow:hidden}.portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%}.reveal.animate{transform:translateY(60px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}.reveal.animate.visible{transform:translateY(0)}@media(prefers-reduced-motion:reduce){.reveal.animate{opacity:1;transform:none;transition:none}}
+body{background:var(--bg) linear-gradient(180deg,#6e6889 0,#5a5576 50vh,var(--bg) 100vh) no-repeat;min-height:100vh}.portrait{overflow:hidden}.portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%}.reveal.animate{transform:translateY(60px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}.reveal.animate.visible{transform:translateY(0)}@media(prefers-reduced-motion:reduce){.reveal.animate{opacity:1;transform:none;transition:none}}
