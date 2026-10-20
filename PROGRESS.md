@@ -1,12 +1,56 @@
 # Progress
 
+## 2026-10-19: One-line subtitle, taller pillar, darker scene, brighter character
+
+- **Subtitle** is on one line (`white-space:nowrap`, no max width), still centered. On phones (≤650px) it still wraps, because it can't fit.
+- **Pillar + character are taller,** using the freed line: `clamp(240px, 100svh − 350px, 530px)` (was `clamp(220px, 100svh − 390px, 450px)`). That's 530px tall at 1440×900, with the pillar about 180px wide.
+- **Darker, duller first screen:**
+  - background gradient `#625f74 → #504d63 → --bg` (was `#7a7693 → #64607e`);
+  - mountain layers `#75728a`, `#5c5974`, `#47445e`, `#36344c`;
+  - clouds `#c9c6d6`, glow `#a9a6ba`, fog `#9895aa` at .28.
+
+  All are less saturated than before. Colors are in `tools/make-hero-scene.py`.
+- **Character** is 18% brighter (`CHAR_BRIGHTNESS` in `tools/make-hero-pillar.py`), so it stands out against the darker scene.
+
+## 2026-10-19: Celebrating character on the intro pillar
+
+- **New image `dist/assets/hero-pillar.webp`** (342×1004, 22 KB) replaces `pillar.webp` in the intro. It combines:
+  - the pillar, with the bottom cropped (600 of its 859px kept);
+  - the celebrating character (the right-most one in `characters.PNG`), centered on its legs and standing on the middle of the pillar's top face;
+  - a soft dark shadow under the feet.
+
+  The character is 1.45× the pillar's width, the same proportion as the carousel's celebrate step.
+- The pillar's old CSS `brightness(1.2)` is now baked into the pillar pixels, so it doesn't also brighten the character. The bottom fade mask is unchanged.
+- Display height is `clamp(220px, 100svh − 390px, 450px)` (phones keep their own clamp). The pillar itself is now about 150px wide at 1440×900 (was 171px) and much shorter.
+- Made by `tools/make-hero-pillar.py` (needs Pillow). Tweak `PILLAR_KEEP`, `CHAR_HEIGHT` or the shadow size there and re-run it. `pillar.webp` stays as the source image.
+- Checked at 1440×900, 1280×720, and 390×844 / 390×667.
+
+## 2026-10-19: Near mountains, headline position, How it works layout, FAQ fix
+
+- **Near mountain layers** now use the same peak shape as the back two (sharp, softly rounded tips, uneven slopes) instead of round mist humps. They have far fewer, broader peaks (4 in the nearer-middle layer, 3 in the front one) so they read as close up. See `near1`/`near2` in `tools/make-hero-scene.py`; `spires()` now takes a `satellites` chance (0.3 and 0 for these layers).
+- **Headline and subtitle** sit just above the pillar: `.intro h1{margin-top:auto}` pushes them down, and the pillar keeps a `clamp(24px, 5vh, 48px)` gap above it.
+- **How it works:** the carousel is on the left and the step text on the right (CSS grid columns swapped; at ≤750px they still stack, text first). The first step now reads "Make a goal. We'll take care of the specifics for you."
+- **FAQ answers were invisible:** their color was `#d1d7e900`, which has zero alpha. It's now `#d1d7e9`. Removed "How does Skope work?" and "What does the character represent?". The four remaining answers are checked visible and filled in.
+
+## 2026-10-19: Less uniform mountains, moon moved clear of them
+
+- **Mountains** (`tools/make-hero-scene.py` → `dist/assets/hero-scene.svg`, now 12 KB). Every peak used to have the same symmetric bell curve, the same notched tip and similar widths and spacing, so they looked cloned. Now each peak:
+  - has two sides that differ in width and steepness, with concave slopes, so it reads as a spire, not a dome;
+  - leans a little off-center, with small rocky ledges on its slopes;
+  - often has a lower satellite peak on one shoulder;
+  - has every corner rounded (the outline is smoothed with curves through segment midpoints), so the tips stay soft.
+
+  Peak heights now vary more: the tallest are at the far left and right edges, and the sky under the moon is kept clear. The foreground mist humps also vary more in width and height and are asymmetric.
+- **Moon** moved up out of the mountains: `top:17%; right:max(8%, 50% − 590px)` on desktop. On phones (≤650px) it sits beside "today?" (`top:170px; right:13%; 36px`), clear of the subtitle at both 667px- and 844px-tall screens.
+- Checked in headless Chrome at 1440×900, 1920×1080, 1024×768 and phone widths of 390 and 360.
+
 ## 2026-10-19: Scenic first screen, swipe carousel, section snapping and reveal animations
 
 ### First section (`.intro`)
 
 - **Fits on one screen.** The nav now floats over the first section (`.nav` is `position:absolute`), and `.intro` is exactly one screen tall (`min-height:100svh`). The pillar's height scales with the screen: `clamp(200px, 100svh − 380px, 430px)` on desktop and `clamp(170px, 100svh − 400px, 460px)` at ≤650px. It sits at the bottom of the section and fades out into the mist.
 - **Mountains, clouds and moon.** `dist/assets/hero-scene.svg` (6 KB) fills the section behind the text:
-  - two hazy layers of jagged mountain peaks, taller at the sides so they stay clear of the headline;
+  - two hazy layers of mountain peaks, taller at the sides so they stay clear of the headline (see the entry above);
   - soft blurred cloud bands;
   - two rows of rounded mist hills;
   - a fade at the bottom into the page color, so the first section blends into How it works with no edge.
