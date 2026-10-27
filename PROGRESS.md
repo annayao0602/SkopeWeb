@@ -102,7 +102,7 @@
 
 The hero ("Make progress, one step at a time" with the character and waitlist form) and the mission section ("Starting is one thing…") are replaced by the new design: an intro with a pillar, then a How it works carousel. Meet the creators, the FAQ, and the footer are unchanged (markup and styles).
 
-> **Placeholder link:** "join our waitlist" opens `https://docs.google.com/spreadsheets/create` in a new tab, which creates a new blank sheet in the visitor's own Google account. Replace it in `dist/index.html` (the last link in the `<nav>`) with your real sheet or form URL before launch.
+> **Waitlist link (updated 2026-10-27):** "join our waitlist" opens the Google Form `https://forms.gle/sJ9BVj8HABRG16ro7` in a new tab. It used to be a placeholder that created a blank sheet. The link is the last one in the `<nav>` in `dist/index.html`.
 
 ### Nav (`dist/index.html` line 4, `dist/style.css`)
 
